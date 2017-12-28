@@ -1,6 +1,7 @@
 sudo ln -s /home/box/webtech18/web /home/box/web 
 
 #sudo ln -s /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/test.conf
+sudo rm /etc/nginx/sites-enabled/def*
 sudo  ln -s /home/box/web/test.cfg  /etc/nginx/sites-enabled/test.conf
 
 

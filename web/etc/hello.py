@@ -9,7 +9,3 @@ def app(environ, start_response):
         ])
 #        return iter([data])
 	return data
-<<<<<<< HEAD
-=======
-
->>>>>>> 4e40b22e4f88b4c75dd0ec0b3bc3741795bdf485

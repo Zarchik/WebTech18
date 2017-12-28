@@ -1,6 +1,7 @@
 def app(environ, start_response):
 #        data = b"Hello, World! From Kirill\n"
 	data = environ['QUERY_STRING']
+        data = data.replace( "&", "\r\n")
         start_response("200 OK", [
             ("Content-Type", "text/plain")
 #            ("Content-Type", "text/plain"),
@@ -8,3 +9,4 @@ def app(environ, start_response):
         ])
 #        return iter([data])
 	return data
+

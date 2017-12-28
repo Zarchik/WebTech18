@@ -1,0 +1,1 @@
+bash /home/box/web/init.sh

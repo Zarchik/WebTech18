@@ -16,6 +16,28 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from qa import views
+
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+#	url(r'^$', views.test, name='index'),
+	url(r'^admin/', include(admin.site.urls)),
+
+
+#/
+	url(r'^$', 'qa.views.test', name='index'),
+#/login/
+	url(r'login/$', views.test, name='login'),
+#/signup/
+	url(r'signup/$', views.test, name='signup'),
+#/ask/
+	url(r'ask/$', views.test, name='ask'),
+#/popular/
+	url(r'popular/$', views.test, name='popular'),
+#/new/
+	url(r'new/$', views.test, name='new'),
+#/question/<123>/    # вместо <123> - произвольный ID
+	url(r'^question/(?P<id>[0-9]+)/$', views.aaa, name='question'),
+	
+
+
 ]

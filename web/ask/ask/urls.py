@@ -19,6 +19,18 @@ from django.contrib import admin
 from qa import views
 
 urlpatterns = [
+<<<<<<< HEAD
+
+#	url(r'^admin/', include(admin.site.urls)),
+	url(r'^admin/', admin.site.urls),
+
+	url(r'^$', views.test, name='index'),
+
+#/
+#	url(r'^$', 'qa.views.test', name='index'),
+#/login/
+	url(r'login/$', views.aaa, name='login'),
+=======
 #	url(r'^$', views.test, name='index'),
 	url(r'^admin/', include(admin.site.urls)),
 
@@ -27,6 +39,7 @@ urlpatterns = [
 	url(r'^$', 'qa.views.test', name='index'),
 #/login/
 	url(r'login/$', views.test, name='login'),
+>>>>>>> 2ab6c2dc0cdfd91ada8694f15d5499163a52a21d
 #/signup/
 	url(r'signup/$', views.test, name='signup'),
 #/ask/

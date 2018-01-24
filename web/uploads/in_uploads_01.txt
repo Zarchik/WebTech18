@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Static file. // from Nginx
 
 Some text! 
+=======
+Hello from static NGINX!
+
+Some text from file )))
+>>>>>>> 2ab6c2dc0cdfd91ada8694f15d5499163a52a21d

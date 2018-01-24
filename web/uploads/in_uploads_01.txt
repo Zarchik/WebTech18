@@ -1,1 +1,3 @@
-in_uploads_01.txt
+Static file. // from Nginx
+
+Some text! 

@@ -1,3 +1,4 @@
+import django
 from django.db import models
 
 # Create your models here.
@@ -16,13 +17,6 @@ class QuestionManager(models.Manager):
 ##########################################################################################
 
 ##########################################################################################
-# Question - вопрос
-# title - заголовок вопроса
-# text - полный текст вопроса
-# added_at - дата добавления вопроса
-# rating - рейтинг вопроса (число)
-# author - автор вопроса
-# likes - список пользователей, поставивших "лайк"
 
 
 class Question(models.Model):
@@ -32,7 +26,12 @@ class Question(models.Model):
 	rating = models.IntegerField()
 	# username = "NoNameUser", password = "NoPassword"
 	# author = django.contrib.auth.models.User()
-	author = models.ForeignKey( django.contrib.auth.models.User, null=True, on_delete=models.SET_NULL)
+	author = models.ForeignKey( django.contrib.auth.models.User, related_name="questions", related_query_name="author", null=True, on_delete=models.SET_NULL)
+
+
+
+
+
 	# List - ?
 	likes = models.ManyToManyField( django.contrib.auth.models.User)
 
@@ -46,16 +45,11 @@ class Question(models.Model):
 #		return self.title
 	def get_absolute_url(self):
 		return '/question/%d/' % self.pk
-#	class Meta:
-#		db_table = 'blogposts'
-#		ordering = ['-creation_date']
+	class Meta:
+		db_table = 'questions'
+		ordering = ['-added_at']
 
 ##########################################################################################
-# Answer - ответ
-# text - текст ответа
-# added_at - дата добавления ответа
-# question - вопрос, к которому относится ответ
-# author - автор ответа
 
 
 
@@ -67,10 +61,12 @@ class Answer(models.Model):
 
 #	def __unicode__(self):
 #		return self.title
-	def get_absolute_url(self):
-		return '/question/%d/' % self.pk
-#	class Meta:
-#		db_table = 'blogposts'
-#		ordering = ['-creation_date']
+#	def get_absolute_url(self):
+#		return '/question/%d/' % self.pk
+
+	class Meta:
+		db_table = 'answers'
+		ordering = ['-added_at']
+
 
 ##########################################################################################

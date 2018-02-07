@@ -22,8 +22,8 @@ class QuestionManager(models.Manager):
 class Question(models.Model):
 	title = models.CharField(max_length=255)
 	text = models.TextField()
-	added_at = models.DateTimeField(blank=False)
-	rating = models.IntegerField()
+	added_at = models.DateTimeField(blank=True, auto_now=True)
+	rating = models.IntegerField(default=0)
 	# username = "NoNameUser", password = "NoPassword"
 	# author = django.contrib.auth.models.User()
 	author = models.ForeignKey( django.contrib.auth.models.User, related_name="questions", related_query_name="author", null=True, on_delete=models.SET_NULL)
@@ -55,7 +55,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
 	text = models.TextField()
-	added_at = models.DateTimeField(blank=False)
+	added_at = models.DateTimeField(blank=True, auto_now=True)
 	question = models.ForeignKey( Question, null=False, on_delete=models.CASCADE)
 	author = models.ForeignKey( django.contrib.auth.models.User, null=True, on_delete=models.SET_NULL)
 
